@@ -25,6 +25,8 @@ namespace R19E01
         private string _modelo;
         private string _tipoVehiculo;
         private float _precioContado;
+        private DateTime _fechaMatriculacion;
+
 
         // Contructores
 
@@ -120,6 +122,21 @@ namespace R19E01
             }
         }
 
+        public DateTime FechaMatriculacion
+        {
+            get
+            {
+
+
+                return _fechaMatriculacion;
+            }
+            set
+            {
+                //Validacion Fecha Matriculacion
+
+                _fechaMatriculacion = value;
+            }
+        }
         #endregion
 
         #region Métodos Privadas
