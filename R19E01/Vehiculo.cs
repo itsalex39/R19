@@ -15,11 +15,15 @@ namespace R19E01
         const int TAMAÑO_MAX_MODELO = 25;
         const int TAMAÑO_MIN_MODELO = 4;
         const string TIPOS_VEHICULOS = "TURISMO FURGONETA CAMIÓN MOTO";
+        const float PRECIO_MIN = 1000;
+        const float PRECIO_MAX = 1000000;
+        const float PRECIO_DEF = 0;
 
         // Miembros / Campos
         private string _marca;
         private string _modelo;
         private string _tipoVehiculo;
+        private float _precioContado;
 
         // Contructores
 
@@ -88,6 +92,27 @@ namespace R19E01
             }
         }
 
+        public float PrecioContado
+        {
+            get
+            {
+                if (_precioContado == PRECIO_DEF)
+                {
+                    throw new Exception("Valor no establecido");
+                }
+
+                return _precioContado;
+            }
+            set
+            {
+                ValidarPrecio(value);
+
+                _precioContado = value;
+            }
+        }
+
+        
+
         #endregion
 
         #region Métodos Privadas
@@ -125,6 +150,18 @@ namespace R19E01
                 {
                     throw new Exception("ERROR: Signos de puntuacion no permitidos");
                 }
+            }
+        }
+
+        private void ValidarPrecio(float precio)
+        {
+            if (precio < PRECIO_MIN)
+            {
+                throw new Exception("ERROR: Precio inferior al minimo");
+            }
+            if(precio > PRECIO_MAX)
+            {
+                throw new Exception("ERROR: Precio superior al maximo");
             }
         }
         #endregion
