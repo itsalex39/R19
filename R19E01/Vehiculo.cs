@@ -18,6 +18,7 @@ namespace R19E01
         const float PRECIO_MIN = 1000;
         const float PRECIO_MAX = 1000000;
         const float PRECIO_DEF = 0;
+        const float DESCUENTO = 0.10f;
 
         // Miembros / Campos
         private string _marca;
@@ -111,7 +112,13 @@ namespace R19E01
             }
         }
 
-        
+        public float PrecioFinanciado
+        {
+            get
+            {
+                return CalcularPrecioFinanciado();
+            }
+        }
 
         #endregion
 
@@ -167,7 +174,14 @@ namespace R19E01
         #endregion
 
         #region Metodos Publicos
+        public float CalcularPrecioFinanciado()
+        {
+            float precioF;
 
+            precioF = PrecioContado - PrecioContado * DESCUENTO;
+
+            return precioF;
+        }
         #endregion
     }
 }
