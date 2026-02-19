@@ -16,9 +16,10 @@ namespace R19E01
         const int TAMAÑO_MIN_MODELO = 4;
         const string TIPOS_VEHICULOS = "TURISMO FURGONETA CAMIÓN MOTO";
         const float PRECIO_MIN = 1000;
-        const float PRECIO_MAX = 1000000;
+        const float PRECIO_MAX = 100000;
         const float PRECIO_DEF = 0;
         const float DESCUENTO = 0.10f;
+        const int LIMITE_MATRICULACION = 10;
 
         // Miembros / Campos
         private string _marca;
@@ -29,6 +30,21 @@ namespace R19E01
 
 
         // Contructores
+        public Vehiculo()
+        {
+            _marca = MARCA_MODEL_DEF;
+            _modelo = MARCA_MODEL_DEF;
+            _tipoVehiculo = "TURISMO";
+            _precioContado = PRECIO_DEF;
+        }
+
+        public Vehiculo(string marca, string modelo)
+        {
+            Marca = marca;
+            Modelo = modelo;
+            _tipoVehiculo = "TURISMO";
+            _precioContado = PRECIO_DEF;
+        }
 
         #region Propiedades
         public string Marca
@@ -133,10 +149,12 @@ namespace R19E01
             set
             {
                 //Validacion Fecha Matriculacion
+                ValidarFechaMatriculacion(value);
 
                 _fechaMatriculacion = value;
             }
         }
+
         #endregion
 
         #region Métodos Privadas
@@ -188,6 +206,32 @@ namespace R19E01
                 throw new Exception("ERROR: Precio superior al maximo");
             }
         }
+
+        private void ValidarFechaMatriculacion(DateTime fecha)
+        {
+            // RECURSOS
+            DateTime fechaActual = DateTime.Today;
+
+            //0.- Comprobar el parametro
+            //if (fecha == null)
+            //{
+            //    throw new Exception("ERROR: No se ha establecido una fecha");
+            //} Nunca se ejecutara el throw porque un DateTime nunca sera nulo
+
+            //1.- Fecha posterior a la actual
+            if (fechaActual < fecha)
+            {
+                throw new Exception("El coche no se puede haner matriculado en el futuro");
+            }
+
+            //2.- Coche con una matriculacion con un limite establecido
+            fechaActual = fechaActual.AddYears(-LIMITE_MATRICULACION);
+            if (fechaActual > fecha)
+            {
+                throw new Exception($"ERROR: El coche tiene mas de {LIMITE_MATRICULACION} años");
+            }
+        }
+
         #endregion
 
         #region Metodos Publicos
