@@ -20,5 +20,20 @@ namespace R19E01
             return seleccion;
         }
         #endregion
+
+        #region METODOS DE SALIDA
+        public static void MostrarListaCoches(Vehiculo[] listaCoches)
+        {
+            Console.Clear();
+
+            Console.WriteLine("\t\tLista de Vehiculos");
+
+            for (int i = 0; i < listaCoches.Length; i++)
+            {
+                Console.WriteLine($"\t {i+1} - {listaCoches[i].Marca} {listaCoches[i].Modelo}");
+            }
+            Console.ReadLine();
+        }
+        #endregion
     }
 }

@@ -13,7 +13,7 @@ namespace R19E01
         const int TAMAÑO_MIN_MARCA = 3;
         const string MARCA_MODEL_DEF = "Desconocido";
         const int TAMAÑO_MAX_MODELO = 25;
-        const int TAMAÑO_MIN_MODELO = 4;
+        const int TAMAÑO_MIN_MODELO = 2;
         const string TIPOS_VEHICULOS = "TURISMO FURGONETA CAMIÓN MOTO";
         const float PRECIO_MIN = 1000;
         const float PRECIO_MAX = 100000;
