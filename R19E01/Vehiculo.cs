@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace R19E01
 {
+    public enum TipoVehiculos : byte { Turismo, Furgoneta, Camion, Moto };
+    public enum TiposCombustible : byte { Gasolina, Diesel, Electrico, Hibrido };
+    public enum TiposEstado : byte { Nuevo, Ocasion, SegundaMano };
     public class Vehiculo
     {
         // Constantes
@@ -14,7 +17,7 @@ namespace R19E01
         const string MARCA_MODEL_DEF = "Desconocido";
         const int TAMAÑO_MAX_MODELO = 25;
         const int TAMAÑO_MIN_MODELO = 2;
-        const string TIPOS_VEHICULOS = "TURISMO FURGONETA CAMIÓN MOTO";
+        //const string TIPOS_VEHICULOS = "TURISMO FURGONETA CAMIÓN MOTO";
         const float PRECIO_MIN = 1000;
         const float PRECIO_MAX = 100000;
         const float PRECIO_DEF = 0;
@@ -24,7 +27,10 @@ namespace R19E01
         // Miembros / Campos
         private string _marca;
         private string _modelo;
-        private string _tipoVehiculo;
+        //private string _tipoVehiculo;
+        public TipoVehiculos Tipo;
+        public TiposCombustible Combustible;
+        public TiposEstado Estado;
         private float _precioContado;
         private DateTime _fechaMatriculacion;
 
@@ -34,7 +40,10 @@ namespace R19E01
         {
             _marca = MARCA_MODEL_DEF;
             _modelo = MARCA_MODEL_DEF;
-            _tipoVehiculo = "TURISMO";
+            //_tipoVehiculo = "TURISMO"; Campo privado de la vers anterior
+            Tipo = TipoVehiculos.Turismo;
+            Combustible = TiposCombustible.Diesel;
+            Estado = TiposEstado.Nuevo;
             _precioContado = PRECIO_DEF;
         }
 
@@ -42,7 +51,10 @@ namespace R19E01
         {
             Marca = marca;
             Modelo = modelo;
-            _tipoVehiculo = "TURISMO";
+            //_tipoVehiculo = "TURISMO"; Campo privado de la vers anterior
+            Tipo = TipoVehiculos.Turismo;
+            Combustible = TiposCombustible.Diesel;
+            Estado = TiposEstado.Nuevo;
             _precioContado = PRECIO_DEF;
         }
 
@@ -90,26 +102,24 @@ namespace R19E01
             }
         }
 
-        public string TipoVehiculo
-        {
-            get
-            {
+        //public string TipoVehiculo
+        //{
+        //    get
+        //    {
+        //        return _tipoVehiculo;
+        //    }
+        //    set
+        //    {
+        //        //Validar tipo de vehiculo
+        //        value = value.ToUpper();
+        //        if (!TIPOS_VEHICULOS.Contains(value))
+        //        {
+        //            throw new Exception("ERROR: Tipo de vehiculo no valido");
+        //        }
 
-
-                return _tipoVehiculo;
-            }
-            set
-            {
-                //Validar tipo de vehiculo
-                value = value.ToUpper();
-                if (!TIPOS_VEHICULOS.Contains(value))
-                {
-                    throw new Exception("ERROR: Tipo de vehiculo no valido");
-                }
-
-                _tipoVehiculo = value;
-            }
-        }
+        //        _tipoVehiculo = value;
+        //    }
+        //}
 
         public float PrecioContado
         {

@@ -12,7 +12,7 @@ namespace R19E01
             // Estructura que almacenará los vehiculos
             Vehiculo[] concesionario;
             bool salir = false;
-            byte opcion = 1;        //0 - Salir
+            byte opcion = 0;        //0 - Salir
                                     //1 - Mostrar listado de vehiculos
                                     //2 - Mostrar datos de un vehiculo
 
@@ -93,7 +93,8 @@ namespace R19E01
             //Cargar Vehiculo 5
             coche = new Vehiculo("Ford", "Transit");
             coche.PrecioContado = 5800;
-            coche.TipoVehiculo = "FURGONETA";
+            //coche.TipoVehiculo = "FURGONETA";
+            coche.Tipo = TipoVehiculos.Furgoneta;
 
             lista[4] = coche;
 
