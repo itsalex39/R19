@@ -83,6 +83,20 @@ namespace R19E01
             }
             Console.ReadLine();
         }
+
+        public static void MostrarDatosCoches(Vehiculo coche)
+        {
+            Console.Clear();
+            Console.WriteLine($"Marca: {coche.Marca}");
+            Console.WriteLine($"Modelo: {coche.Modelo}");
+            Console.WriteLine($"Tipo de Vehículo: {coche.Tipo}");
+            Console.WriteLine($"Combustible: {coche.Combustible}");
+            Console.WriteLine($"Precio Contado {coche.PrecioContado}");
+            Console.WriteLine($"Precio Financiado: {coche.PrecioFinanciado}");
+            Console.WriteLine($"");
+
+            Console.ReadLine();
+        }
         #endregion
     }
 }

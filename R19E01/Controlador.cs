@@ -15,10 +15,21 @@ namespace R19E01
             Interfaz.MostrarListaCoches(listaCoches);
         }
 
-       public static void MostrarVehiculo(Vehiculo[] concesionario)
-        {
-            //TODO: Implementacion de la accion Mostrar Vehiculo
-            throw new NotImplementedException();
-        }
+       public static void MostrarVehiculo(Vehiculo[] listaCoches)
+       {
+            // Recursos 
+            int seleccion = 0;
+
+            //1.- Mostrar lista de Vehiculos
+
+            //2.- Seleccionar Vehiculo
+
+            //3.- Validar Selección
+
+            //4.- Mostrar la Retroalimentación
+
+            //5.- Mostrar Datos Vehiculo
+            Interfaz.MostrarDatosCoches(listaCoches[seleccion]);
+       }
     }
 }
